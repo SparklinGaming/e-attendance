@@ -25,7 +25,7 @@ class FirestoreService {
         'timestamp': Timestamp.fromDate(now),
       });
     } catch (e) {
-      print("CheckIn Error: $e");
+      // print("CheckIn Error: $e");
       rethrow;
     }
   }
@@ -46,7 +46,7 @@ class FirestoreService {
          'timestamp': Timestamp.fromDate(now),
       });
     } catch (e) {
-       print("CheckOut Error: $e");
+       // print("CheckOut Error: $e");
        rethrow;
     }
   }

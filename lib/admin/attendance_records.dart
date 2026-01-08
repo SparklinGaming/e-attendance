@@ -89,9 +89,6 @@ class _AttendanceRecordsPageState extends State<AttendanceRecordsPage> {
                         String statusLabel = '';
                         Color statusColor = Colors.grey;
                         
-                        // DEBUG STRING
-                        String debugStr = "";
-
                         if (settings != null) {
                            if (isCheckIn) {
                               DateTime startTime = DateTime(dt.year, dt.month, dt.day, settings['start_hour']!, settings['start_minute']!);
@@ -104,7 +101,6 @@ class _AttendanceRecordsPageState extends State<AttendanceRecordsPage> {
                                  statusLabel = 'On Time';
                                  statusColor = Colors.green;
                               }
-                              debugStr = " (In: ${DateFormat('HH:mm').format(dt)} vs Start: ${DateFormat('HH:mm').format(startTime)})";
                            } else {
                               // Check Out Logic
                               DateTime endTime = DateTime(dt.year, dt.month, dt.day, settings['end_hour']!, settings['end_minute']!);
@@ -132,7 +128,7 @@ class _AttendanceRecordsPageState extends State<AttendanceRecordsPage> {
                             children: [
                               Text('${isCheckIn ? "Check In" : "Check Out"} at $time'),
                               if (statusLabel.isNotEmpty)
-                                Text(statusLabel + debugStr, style: TextStyle(color: statusColor, fontWeight: FontWeight.w600, fontSize: 12)),
+                                Text(statusLabel, style: TextStyle(color: statusColor, fontWeight: FontWeight.w600, fontSize: 12)),
                             ],
                           ),
                           trailing: Text(time, style: const TextStyle(fontWeight: FontWeight.bold)),
